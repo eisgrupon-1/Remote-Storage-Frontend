@@ -11,7 +11,9 @@ Nro | Nombre                | Legajo       | Mail
 4   |    Matias Rodriguez   |              | Matias_1412@hotmail.com
 
 
-## Available Scripts
+
+
+## Project Installation Steps
 
 In the project directory, you can run:
 
