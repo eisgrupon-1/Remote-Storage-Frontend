@@ -1,11 +1,11 @@
 import React from 'react';
-import Header from './Header';
+import Login from './Login';
 import ReactDOM from 'react-dom';
 import './App.css';
 
 function App() {
   return (
-    ReactDOM.render(<Header />, document.getElementById('root')));
+    ReactDOM.render(<Login />, document.getElementById('root')));
 }
 
 
