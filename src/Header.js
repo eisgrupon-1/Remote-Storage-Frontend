@@ -13,7 +13,7 @@ function Header() {
   return (
     <>
   <Navbar bg="dark" variant="dark">
-    <Navbar.Brand><NavLink to="/" className="link">RemoteStorage</NavLink></Navbar.Brand>
+    <Navbar.Brand><NavLink to="/main" className="link">RemoteStorage</NavLink></Navbar.Brand>
     <Nav className="mr-auto">
         <NavLink to="/files" className="link">Lista de archivos</NavLink>
         <NavLink to="/upload-files" className="link" >Subir archivos</NavLink>     
