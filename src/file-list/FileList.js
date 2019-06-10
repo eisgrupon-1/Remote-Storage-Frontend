@@ -1,55 +1,54 @@
-import React from "react";
+import React,  { Component } from "react";
 import './FileList.css';
 import '../global.css';
 
-let id = 0;
 
-function createData(option, type) {
-  id += 1;
-  return { id, option, type };
-}
 
-function createDownloadBtn(){
+class FileList extends Component {
+  state = { result: [] };
+
+  createDownloadBtn(){
+      return (
+          <button>
+            Descargar
+          </button>
+        );
+  }
+
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount(){
+    fetch("http://localhost:6789/rsfiles")
+    .then(response => response.json())
+    .then(result => this.setState({result}))
+    .catch(e => console.log(e));
+  }
+
+  render(){
     return (
-        <button>
-          Descargar
-        </button>
-      );
-}
-
-let columns = [
-    'Nombre',
-    'Peso',
-    'Acción'
-  ];
-
-let rows = [
-  createData('archivo1', '12 mb'),
-  createData('archivo2', '22 mb'),
-];
-
-function FileList() {
-  return (
-    <div className="Component">
-     <span className="Title">Lista de archivos</span>
-        <div className="Content">
-        <table>    
-        <tr>
-            {columns.map(column => (
-                <th>{column}</th>
-            ))}
-        </tr>    
-        {rows.map(row => (
-            <tr key={row.id}>
-                <td>{row.option}</td>
-                <td>{row.type}</td>
-                <td>{createDownloadBtn()}</td>
-            </tr>
-         ))}
-       </table>
-       </div>
-    </div>
-  );
+      <div className="Component">
+       <span className="Title">Lista de archivos</span>
+          <div className="Content">
+          <table>    
+          <tr>
+          <th>Nombre</th>
+          <th>Peso</th>
+          <th>Accion</th>
+          </tr>    
+          {this.state.result.map(row => (
+              <tr key={this.state.result.indexOf(row)}>
+                  <td>{row.name}</td>
+                  <td>{row.sizeAsBytes}</td>
+                  <td>{this.createDownloadBtn()}</td>
+              </tr>
+           ))}
+         </table>
+         </div>
+      </div>
+    );
+  } 
 }
 
 
