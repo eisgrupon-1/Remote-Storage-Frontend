@@ -3,10 +3,10 @@ import './FileList.css';
 import '../global.css';
 
 const endpoint = "http://localhost:6789/rsfiles";
-const downloadEndpoint = "http://localhost:6791/download";
+const downloadEndpoint = "http://localhost:6790/download";
 
 class FileList extends Component {
-  state = { result: [] };
+  state = { result: [] }
   
   createDownloadBtn(uuid, filename){
       return (
