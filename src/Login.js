@@ -15,7 +15,6 @@ class Login extends Component {
 }
 
   validateUser(){
-    debugger;
     if (this.state.userOrEmail.includes("@") 
         && !this.state.user.email == (this.state.userOrEmail)){
       return false;
