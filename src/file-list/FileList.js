@@ -6,8 +6,16 @@ const endpoint = "http://localhost:6789/rsfiles";
 const downloadEndpoint = "http://localhost:6790/download";
 
 class FileList extends Component {
-  state = { result: [] }
-  
+
+  constructor(props) {
+
+    super(props);
+
+    this.state = { result: [], filter: this.props.match.params.name}
+    this.filterResults = this.filterResults.bind(this);
+ }
+
+
   createDownloadBtn(uuid, filename){
       return (
           <form action={downloadEndpoint + "/" + uuid + "/" + filename} method="get">
@@ -16,6 +24,13 @@ class FileList extends Component {
             </button>
           </form>
         );
+  }
+
+  filterResults(){
+    if (this.state.filter){
+      return this.state.result.filter(item => item.name == this.state.filter);
+    }
+    return this.state.result;
   }
 
   componentDidMount(){
@@ -39,7 +54,7 @@ class FileList extends Component {
               </tr>
             </thead>
             <tbody> 
-              {this.state.result.map(row => (
+              {this.filterResults().map(row => (
                   <tr key={this.state.result.indexOf(row)}>
                       <td>{row.name}</td>
                       <td>{row.sizeAsBytes}</td>

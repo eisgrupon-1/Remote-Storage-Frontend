@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Home from './home/Home';
 import Header from './Header';
 import Upload from "./upload/Upload";
 import FileList from "./file-list/FileList";
 import ReactDOM from 'react-dom';
 import Login from './Login';
+import {withRouter} from 'react-router'
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,30 +13,36 @@ import {
 } from 'react-router-dom';
 
 
-function Main() {
+class Main extends Component {
+
+  constructor(props) {
+    super(props);
+
+ }
+
+render() {
   return (
-    ReactDOM.render(
       <Router>
          <div> 
           <div>   
-           <Header />
+           <Header history={this.props.history} />
           </div>             
               <div className="App">   
                 <div className="Card">   
-                <Child />
+                <Switch>
+                  <Route exact path="/main" component={Home} />
+                  <Route exact path="/files/:name?" component={FileList} />
+                  <Route exact path="/upload-files" component={Upload} />
+               </Switch>
               </div>
            </div>
          </div> 
       </Router>
-  , document.getElementById('root')));
+  );
 }
 
-const Child = () => (
-  <Switch>
-      <Route exact path="/main" component={Home} />
-      <Route exact path="/files" component={FileList} />
-      <Route path="/upload-files" component={Upload} />
-  </Switch>
-);
+}
 
-export default Main;
+
+
+export default withRouter(Main);
