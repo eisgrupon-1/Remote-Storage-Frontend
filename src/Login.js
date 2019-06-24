@@ -12,7 +12,7 @@ class Login extends Component {
 
     this.handleChangeUser = this.handleChangeUser.bind(this);
     this.handleChangePassword = this.handleChangePassword.bind(this);
-}
+ }
 
   validateUser(){
     if (this.state.userOrEmail.includes("@") 
