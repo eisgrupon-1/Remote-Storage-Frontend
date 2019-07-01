@@ -12,6 +12,7 @@ class FileList extends Component {
     super(props);
 
     this.state = { result: [], filter: this.props.match.params.name}
+
     this.filterResults = this.filterResults.bind(this);
  }
 
@@ -34,10 +35,14 @@ class FileList extends Component {
   }
 
   componentDidMount(){
-    fetch(endpoint)
+     fetch(endpoint)
     .then(response => response.json())
-    .then(result => this.setState({result}))
-    .catch(e => console.log(e));
+    .then(result => {     
+          this.setState({result})
+          this.filterResults()
+        }
+    )
+    .catch(e => console.log(e)); 
   }
 
   render(){
@@ -54,7 +59,7 @@ class FileList extends Component {
               </tr>
             </thead>
             <tbody> 
-              {this.filterResults().map(row => (
+              {this.state.result.map(row => (
                   <tr key={this.state.result.indexOf(row)}>
                       <td>{row.name}</td>
                       <td>{row.sizeAsBytes}</td>

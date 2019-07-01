@@ -15,7 +15,7 @@ function App() {
       <Router>
            <Root />
       </Router>
-  , document.getElementById('root')));
+  , document.getElementById('root') || document.createElement('div')));
 }
 
 const Root = () => (
