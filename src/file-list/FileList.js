@@ -28,7 +28,7 @@ class FileList extends Component {
 
   filterResults(){
     if (this.state.filter){
-      return this.state.result.filter(item => item.name == this.state.filter);
+      return this.state.result.filter(item => item.name === this.state.filter);
     }
     return this.state.result;
   }
