@@ -1,6 +1,6 @@
 ## Remote Storage App
 
-[![Build Status](https://travis-ci.org/eisgrupon-1/Remote-Storage-Frontend.svg?branch=master)
+![Build Status](https://travis-ci.org/eisgrupon-1/Remote-Storage-Frontend.svg?branch=master)
 
 ### Members
 
