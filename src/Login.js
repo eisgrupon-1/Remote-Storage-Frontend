@@ -16,15 +16,15 @@ class Login extends Component {
 
   validateUser(){
     if (this.state.userOrEmail.includes("@") 
-        && !this.state.user.email == (this.state.userOrEmail)){
+        && !this.state.user.email === (this.state.userOrEmail)){
       return false;
     }
 
-    if (this.state.user.user != (this.state.userOrEmail)){
+    if (this.state.user.user !== (this.state.userOrEmail)){
       return false;
     } 
 
-    if (this.state.user.password != this.state.password){
+    if (this.state.user.password !== this.state.password){
       return false
     }
 

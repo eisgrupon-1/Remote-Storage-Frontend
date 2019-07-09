@@ -3,8 +3,6 @@ import Home from './home/Home';
 import Header from './Header';
 import Upload from "./upload/Upload";
 import FileList from "./file-list/FileList";
-import ReactDOM from 'react-dom';
-import Login from './Login';
 import {withRouter} from 'react-router'
 import {
   BrowserRouter as Router,
@@ -14,11 +12,6 @@ import {
 
 
 class Main extends Component {
-
-  constructor(props) {
-    super(props);
-
- }
 
 render() {
   return (
