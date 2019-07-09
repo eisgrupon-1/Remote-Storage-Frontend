@@ -39,11 +39,5 @@ it('renders file table with these columns', () => {
   expect(wrapper.contains(<th>Accion</th>)).toEqual(true);
 });
 
-it('renders no download button if has empty data', () => {
-  configure({ adapter: new Adapter() }) 
-
-  var wrapper= shallow(<FileList match= {match}/>);
-  expect(wrapper.contains(<button type="submit">Descargar</button>)).toEqual(false);
-});
 
 

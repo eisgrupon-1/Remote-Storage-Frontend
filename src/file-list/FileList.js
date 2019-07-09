@@ -12,7 +12,6 @@ class FileList extends Component {
     super(props);
 
     this.state = { result: [], filter: this.props.match.params.name}
-
     this.filterResults = this.filterResults.bind(this);
  }
 
